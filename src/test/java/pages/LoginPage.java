@@ -35,7 +35,7 @@ public class LoginPage {
         try {
             driver.hideKeyboard();  // Safely attempt to hide the keyboard
         } catch (Exception e) {
-            System.out.println("⚠️ Keyboard already hidden or cannot hide it.");
+            System.out.println("Keyboard already hidden or cannot hide it.");
         }
 
        

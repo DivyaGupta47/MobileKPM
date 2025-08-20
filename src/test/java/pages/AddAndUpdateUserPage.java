@@ -129,6 +129,35 @@ public class AddAndUpdateUserPage {
 		Assert.assertTrue(userItem.isDisplayed(), "Expected first name '" + userName + "' not found!");
 		Thread.sleep(1000);
 
+	}
+
+	public void updateUser(String email, String userUpdateName, String userName) throws InterruptedException {
+
+		WebElement userRow = driver
+				.findElement(AppiumBy.androidUIAutomator("new UiSelector().descriptionContains(\"" + email + "\")"));
+
+		userRow.click();
+		Thread.sleep(1000);
+
+		WebElement firstName = driver
+				.findElement(AppiumBy.androidUIAutomator("new UiSelector().textContains(\"" + userName + "\")"));
+
+		firstName.click();
+		firstName.clear();
+		Thread.sleep(500);
+		WebElement firstName1 = driver.findElement(By.xpath("//android.widget.EditText[@hint='First Name']"));
+		firstName1.sendKeys(userUpdateName);
+		Thread.sleep(1000);
+		By saveBtn = By.xpath("//android.widget.Button[contains(@content-desc, 'Save')]");
+		driver.findElement(saveBtn).click();
+		Thread.sleep(3000);
+
+		System.out.println("TEST PASSED: User updated successfully");
+
+	}
+
+	public void logout() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		WebElement menuButton = driver.findElement(
 				AppiumBy.androidUIAutomator("new UiSelector().className(\"android.view.View\").instance(5)"));
 		menuButton.click();
@@ -142,6 +171,5 @@ public class AddAndUpdateUserPage {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(yesButton));
 
 		driver.findElement(yesButton).click();
-
 	}
 }
