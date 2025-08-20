@@ -1,0 +1,42 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Kestrel Pro Manufacturing Mobile Automation Suite" parallel="false">
+
+    <!-- Define Test Groups -->
+    <test name="Login Test">
+        <classes>
+            <class name="tests.LoginAdminTest"/>
+        </classes>
+    </test>
+
+    <test name="Dashboard Test">
+        <classes>
+            <class name="tests.DashboardTest"/>
+        </classes>
+    </test>
+
+    <test name="New Order Test">
+        <classes>
+            <class name="tests.NewOrderTest"/>
+        </classes>
+    </test>
+    
+      <test name="Queued Order and Completed Order Test">
+        <classes>
+            <class name="tests.QueuedAndCompletedOrderTest"/>
+        </classes>
+    </test>
+    
+      <test name="Queued Order and Reject Order Test">
+        <classes>
+            <class name="tests.QueuedAndRejectOrderTest"/>
+        </classes>
+    </test>
+    
+          <test name="Add new user Test">
+        <classes>
+            <class name="tests.AddAndUpdateUserTest"/>
+        </classes>
+    </test>
+
+</suite>
